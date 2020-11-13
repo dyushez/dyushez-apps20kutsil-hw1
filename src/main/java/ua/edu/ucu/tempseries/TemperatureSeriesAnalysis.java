@@ -2,14 +2,14 @@ package ua.edu.ucu.tempseries;
 
 
 import java.util.InputMismatchException;
-import static java.util.Arrays.copyOf;
+import java.util.Arrays.copyOf;
 
 
 public class TemperatureSeriesAnalysis {
 
     public double[] temperatures;
-    public final double MINIMUM = -273;
-    public final double EMPTYCELL = -274;
+    public static final double MINIMUM = -273;
+    public static final double EMPTYCELL = -274;
 
     public TemperatureSeriesAnalysis() {
         temperatures = new double[]{};
