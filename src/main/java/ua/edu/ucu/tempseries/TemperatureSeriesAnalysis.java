@@ -2,7 +2,7 @@ package ua.edu.ucu.tempseries;
 
 
 import java.util.InputMismatchException;
-import java.util.Arrays.copyOf;
+import static java.util.Arrays.copyOf;
 
 
 public class TemperatureSeriesAnalysis {
