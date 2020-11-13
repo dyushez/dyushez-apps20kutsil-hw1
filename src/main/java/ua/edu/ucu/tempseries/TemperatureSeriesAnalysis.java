@@ -8,9 +8,9 @@ import static java.util.Arrays.copyOf;
 
 public class TemperatureSeriesAnalysis {
 
-    public double[] temperatures;
-    public final double MINIMUM = -273;
-    public final double EMPTYCELL = -274;
+    private double[] temperatures;
+    static final double MINIMUM = -273;
+    static final double EMPTYCELL = -274;
 
     public TemperatureSeriesAnalysis() {
         temperatures = new double[]{};
@@ -88,9 +88,10 @@ public class TemperatureSeriesAnalysis {
         } else {
             double closest = temperatures[0];
             for (double temperature : temperatures) {
-                if (Math.abs(temperature - tempValue) < Math.abs(closest - tempValue)) {
+                if (Math.abs(temperature-tempValue) < Math.abs(closest-tempValue)) {
                     closest = temperature;
-                } else if (Math.abs(temperature - tempValue) == Math.abs(closest - tempValue) && temperature > 0) {
+                } else if (Math.abs(temperature-tempValue) == Math.abs(closest-tempValue) &&
+                           temperature > 0) {
                     closest = temperature;
                 }
             }
