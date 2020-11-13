@@ -2,6 +2,7 @@ package ua.edu.ucu.tempseries;
 
 
 import java.util.InputMismatchException;
+
 import static java.util.Arrays.copyOf;
 
 
@@ -37,15 +38,15 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        if (temperatures.length == 0){
+        if (temperatures.length == 0) {
             throw new IllegalArgumentException("array is empty");
         } else {
             double mean = average();
             float devSum = 0;
             for (double temperature : temperatures) {
-                devSum += Math.pow(temperature - mean, 2);
+                devSum += (temperature - mean) * (temperature - mean);
             }
-            return Math.sqrt(devSum/temperatures.length);
+            return Math.sqrt(devSum / temperatures.length);
         }
     }
 
@@ -99,7 +100,7 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsLessThen(double tempValue) {
         double[] tempTemperatures = new double[temperatures.length];
-        int i =  0;
+        int i = 0;
         for (double temperature : temperatures) {
             if (temperature < tempValue) {
                 tempTemperatures[i] = temperature;
@@ -113,7 +114,7 @@ public class TemperatureSeriesAnalysis {
 
     public double[] findTempsGreaterThen(double tempValue) {
         double[] tempTemperatures = new double[temperatures.length];
-        int i =  0;
+        int i = 0;
         for (double temperature : temperatures) {
             if (temperature > tempValue) {
                 tempTemperatures[i] = temperature;
@@ -126,7 +127,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if (temperatures.length == 0){
+        if (temperatures.length == 0) {
             throw new IllegalArgumentException("array is empty");
         }
         return new TempSummaryStatistics(average(), deviation(), min(), max());
@@ -135,7 +136,7 @@ public class TemperatureSeriesAnalysis {
 
     public double addTemps(double... temps) {
         double sum = 0;
-        for (double temp : temperatures){
+        for (double temp : temperatures) {
             sum += temp;
         }
 
