@@ -1,6 +1,3 @@
-package ua.edu.ucu.tempseries;
-
-
 import static org.junit.Assert.*;
 import org.junit.Test;
 import java.util.InputMismatchException;
@@ -82,6 +79,14 @@ public class TemperatureSeriesAnalysisTest {
         double actualResult = seriesAnalysis.max();
 
         assertEquals(expResult, actualResult, 0.00001);
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testFindTempClosestToValueEmpty(){
+        double[] temperatureSeries = {};
+        TemperatureSeriesAnalysis seriesAnalysis = new TemperatureSeriesAnalysis(temperatureSeries);
+
+        double actualResult = seriesAnalysis.findTempClosestToValue(-7.0);
     }
 
     @Test
