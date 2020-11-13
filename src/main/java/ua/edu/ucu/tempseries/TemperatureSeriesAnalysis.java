@@ -37,7 +37,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        if (temperatures.length == 0) {
+        if (temperatures.length == 0){
             throw new IllegalArgumentException("array is empty");
         } else {
             double mean = average();
@@ -87,11 +87,9 @@ public class TemperatureSeriesAnalysis {
         } else {
             double closest = temperatures[0];
             for (double temperature : temperatures) {
-                if (Math.abs(temperature - tempValue) < 
-                    Math.abs(closest - tempValue)) {
+                if (Math.abs(temperature - tempValue) < Math.abs(closest - tempValue)) {
                     closest = temperature;
-                } else if (Math.abs(temperature - tempValue) == 
-                           Math.abs(closest - tempValue) && temperature > 0) {
+                } else if (Math.abs(temperature - tempValue) == Math.abs(closest - tempValue) && temperature > 0) {
                     closest = temperature;
                 }
             }
@@ -128,7 +126,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if (temperatures.length == 0) {
+        if (temperatures.length == 0){
             throw new IllegalArgumentException("array is empty");
         }
         return new TempSummaryStatistics(average(), deviation(), min(), max());
